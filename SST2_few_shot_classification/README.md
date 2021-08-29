@@ -110,9 +110,8 @@ The template is composed of special tokens and variables (surrounded by `*`) and
 * `*+sent_i*`: The i-th sentence, adding an extra space at the beginning.
 * `*+sentl_i*`: The i-th sentence, adding an extra space at the beginning and lower-casing the first letter.
 
-## Citation
+## Reference:
 
-Please cite our paper if you use LM-BFF in your work:
 
 ```bibtex
 @inproceedings{gao2021making,
