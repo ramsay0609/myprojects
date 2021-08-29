@@ -12,7 +12,7 @@ This is the implementation of the paper [Making Pre-trained Language Models Bett
   - [Run LM-BFF](#run-lm-bff)
     - [Quick start](#quick-start)
     - [How to design your own templates](#how-to-design-your-own-templates)
-  - [Citation](#citation)
+  - [Reference](#reference)
 
 
 ## Overview
