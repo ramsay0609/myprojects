@@ -1,0 +1,95 @@
+python run.py --task_name='SST-2' --cache_dir="model_cache_dir_rob_base" --data_dir='data/k-shot/SST-2/16-42' --overwrite_output_dir --do_train --do_eval --do_predict --model_name_or_path="roberta-base" --few_shot_type="prompt-demo" --num_k=16 --max_steps=1000 --eval_steps=100 --per_device_train_batch_size=2 --learning_rate=1e-5 --num_train_epochs=0 --output_dir='result/tmp' --seed=42 --template="*cls**sent_0*_It_was*mask*.*sep+*" --mapping="{'0':'terrible','1':'great'}" --num_sample=16 --evaluation_strategy="steps"
+
+2021-05-25 06:16:17.453189: I tensorflow/stream_executor/platform/default/dso_loader.cc:53] Successfully opened dynamic library cudart64_110.dll
+05/25/2021 06:16:21 - WARNING - __main__ -   Process rank: -1, device: cuda:0, n_gpu: 1, distributed training: False, 16-bits training: False
+05/25/2021 06:16:21 - INFO - __main__ -   Training/evaluation parameters DynamicTrainingArguments(output_dir='result/tmp', overwrite_output_dir=True, do_train=True, do_eval=True, do_predict=True, evaluation_strategy=<IntervalStrategy.STEPS: 'steps'>, prediction_loss_only=False, per_device_train_batch_size=2, per_device_eval_batch_size=8, per_gpu_train_batch_size=None, per_gpu_eval_batch_size=None, gradient_accumulation_steps=1, eval_accumulation_steps=None, learning_rate=1e-05, weight_decay=0.0, adam_beta1=0.9, adam_beta2=0.999, adam_epsilon=1e-08, max_grad_norm=1.0, num_train_epochs=0.0, max_steps=1000, lr_scheduler_type=<SchedulerType.LINEAR: 'linear'>, warmup_ratio=0.0, warmup_steps=0, logging_dir='runs\\May25_06-16-20_LAPTOP-IN0AF4CJ', logging_strategy=<IntervalStrategy.STEPS: 'steps'>, logging_first_step=False, logging_steps=500, save_strategy=<IntervalStrategy.STEPS: 'steps'>, save_steps=500, save_total_limit=None, no_cuda=False, seed=42, fp16=False, fp16_opt_level='O1', fp16_backend='auto', fp16_full_eval=False, local_rank=-1, tpu_num_cores=None, tpu_metrics_debug=False, debug=[], dataloader_drop_last=False, eval_steps=100, dataloader_num_workers=0, past_index=-1, run_name='result/tmp', disable_tqdm=False, remove_unused_columns=True, label_names=None, load_best_model_at_end=False, metric_for_best_model=None, greater_is_better=None, ignore_data_skip=False, sharded_ddp=[], deepspeed=None, label_smoothing_factor=0.0, adafactor=False, group_by_length=False, length_column_name='length', report_to=['tensorboard'], ddp_find_unused_parameters=None, dataloader_pin_memory=True, skip_memory_metrics=False, use_legacy_prediction_loop=False, push_to_hub=False, resume_from_checkpoint=None, mp_parameters='', array_id=-1, model_id=-1, save_logit=False, save_logit_dir=None, fix_layers=0, save_at_last=False, no_train=False, no_predict=False)
+05/25/2021 06:16:21 - INFO - __main__ -   Task name: sst-2, number of labels: 2, output mode: classification
+05/25/2021 06:16:21 - INFO - __main__ -   Automatically convert the template to using demonstrations.
+05/25/2021 06:16:21 - INFO - __main__ -   | *cls**sent_0*_It_was*mask*.*sep+* => *cls**sent_0*_It_was*mask*.*sep+**sent_1*_It_was*label_0*.*sep+**sent_2*_It_was*label_1*.*sep+*
+05/25/2021 06:16:22 - INFO - filelock -   Lock 1983888272496 acquired on model_cache_dir_rob_base\733bade19e5f0ce98e6531021dd5180994bb2f7b8bd7e80c7968805834ba351e.35205c6cfc956461d8515139f0f8dd5d207a2f336c0c3a83b4bc8dca3518e37b.lock
+Downloading: 100%|████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 481/481 [00:00<00:00, 37.2kB/s] 
+05/25/2021 06:16:23 - INFO - filelock -   Lock 1983888272496 released on model_cache_dir_rob_base\733bade19e5f0ce98e6531021dd5180994bb2f7b8bd7e80c7968805834ba351e.35205c6cfc956461d8515139f0f8dd5d207a2f336c0c3a83b4bc8dca3518e37b.lock
+05/25/2021 06:16:25 - INFO - filelock -   Lock 1983888232400 acquired on model_cache_dir_rob_base\d3ccdbfeb9aaa747ef20432d4976c32ee3fa69663b379deb253ccfce2bb1fdc5.d67d6b367eb24ab43b08ad55e014cf254076934f71d832bbab9ad35644a375ab.lock
+Downloading: 100%|███████████████████████████████████████████████████████████████████████████████████████████████████████████████| 899k/899k [00:03<00:00, 274kB/s] 
+05/25/2021 06:16:30 - INFO - filelock -   Lock 1983888232400 released on model_cache_dir_rob_base\d3ccdbfeb9aaa747ef20432d4976c32ee3fa69663b379deb253ccfce2bb1fdc5.d67d6b367eb24ab43b08ad55e014cf254076934f71d832bbab9ad35644a375ab.lock
+05/25/2021 06:16:31 - INFO - filelock -   Lock 1983888229856 acquired on model_cache_dir_rob_base\cafdecc90fcab17011e12ac813dd574b4b3fea39da6dd817813efa010262ff3f.5d12962c5ee615a4c803841266e9c3be9a691a924f72d395d3a6c6c81157788b.lock
+Downloading: 100%|███████████████████████████████████████████████████████████████████████████████████████████████████████████████| 456k/456k [00:02<00:00, 223kB/s] 
+05/25/2021 06:16:35 - INFO - filelock -   Lock 1983888229856 released on model_cache_dir_rob_base\cafdecc90fcab17011e12ac813dd574b4b3fea39da6dd817813efa010262ff3f.5d12962c5ee615a4c803841266e9c3be9a691a924f72d395d3a6c6c81157788b.lock
+05/25/2021 06:16:36 - INFO - filelock -   Lock 1983887943904 acquired on model_cache_dir_rob_base\d53fc0fa09b8342651efd4073d75e19617b3e51287c2a535becda5808a8db287.fc9576039592f026ad76a1c231b89aee8668488c671dfbe6616bab2ed298d730.lock
+Downloading: 100%|█████████████████████████████████████████████████████████████████████████████████████████████████████████████| 1.36M/1.36M [00:03<00:00, 386kB/s] 
+05/25/2021 06:16:40 - INFO - filelock -   Lock 1983887943904 released on model_cache_dir_rob_base\d53fc0fa09b8342651efd4073d75e19617b3e51287c2a535becda5808a8db287.fc9576039592f026ad76a1c231b89aee8668488c671dfbe6616bab2ed298d730.lock
+05/25/2021 06:16:44 - INFO - src.dataset -   Use demonstrations
+05/25/2021 06:16:44 - INFO - src.dataset -   Label 0 to word Ġterrible (6587)
+05/25/2021 06:16:44 - INFO - src.dataset -   Label 1 to word Ġgreat (372)    
+05/25/2021 06:16:44 - INFO - src.dataset -   Total num_sample for mode train: 1
+05/25/2021 06:16:44 - INFO - src.dataset -   Creating/loading examples from dataset file at data/k-shot/SST-2/16-42
+05/25/2021 06:16:44 - INFO - filelock -   Lock 1983888231392 acquired on data/k-shot/SST-2/16-42\cached_train_RobertaTokenizerFast_128_sst-2.lock
+05/25/2021 06:16:44 - INFO - src.dataset -   Creating features from dataset file at data/k-shot/SST-2/16-42
+05/25/2021 06:16:44 - INFO - src.dataset -   Saving features into cached file data/k-shot/SST-2/16-42\cached_train_RobertaTokenizerFast_128_sst-2 [took 0.000 s]
+05/25/2021 06:16:44 - INFO - filelock -   Lock 1983888231392 released on data/k-shot/SST-2/16-42\cached_train_RobertaTokenizerFast_128_sst-2.lock
+05/25/2021 06:16:44 - INFO - src.dataset -   Use demonstrations
+05/25/2021 06:16:44 - INFO - src.dataset -   Label 0 to word Ġterrible (6587)
+05/25/2021 06:16:44 - INFO - src.dataset -   Label 1 to word Ġgreat (372)
+05/25/2021 06:16:44 - INFO - src.dataset -   Total num_sample for mode dev: 16
+05/25/2021 06:16:44 - INFO - src.dataset -   Creating/loading examples from dataset file at data/k-shot/SST-2/16-42
+05/25/2021 06:16:44 - INFO - filelock -   Lock 1983888310720 acquired on data/k-shot/SST-2/16-42\cached_dev_RobertaTokenizerFast_128_sst-2.lock
+05/25/2021 06:16:44 - INFO - src.dataset -   Creating features from dataset file at data/k-shot/SST-2/16-42
+05/25/2021 06:16:44 - INFO - src.dataset -   Saving features into cached file data/k-shot/SST-2/16-42\cached_dev_RobertaTokenizerFast_128_sst-2 [took 0.000 s]
+05/25/2021 06:16:44 - INFO - filelock -   Lock 1983888310720 released on data/k-shot/SST-2/16-42\cached_dev_RobertaTokenizerFast_128_sst-2.lock
+05/25/2021 06:16:44 - INFO - src.dataset -   *** Example ***
+05/25/2021 06:16:44 - INFO - src.dataset -   guid: dev-1
+05/25/2021 06:16:44 - INFO - src.dataset -   features: OurInputFeatures(input_ids=[0, 16918, 10, 17824, 25169, 478, 12, 463, 12, 17745, 6789, 2156, 47, 6056, 295, 75, 244, 1985, 154, 14, 24, 21, 29996, 15, 10, 183, 12, 560, 12, 1208, 1453, 148, 931, 479, 85, 21, 50264, 4, 2, 9502, 12, 36588, 41906, 475, 2420, 857, 16, 393, 441, 7, 2999, 24, 124, 15, 768, 479, 85, 21, 6587, 4, 2, 9226, 10195, 39433, 29993, 9, 10, 14481, 1516, 5, 633, 626, 479, 85, 21, 372, 4, 2, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1], attention_mask=[1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 
+0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], token_type_ids=None, label=0, mask_pos=[36], label_word_list=None)
+05/25/2021 06:16:44 - INFO - src.dataset -   text: <s>such a wildly uneven hit-and-miss enterprise, you can't help suspecting that it was improvised on a day-to-day basis during production. It was<mask>.</s>first-timer john mckay is never able to pull it back on course. It was terrible.</s>this seductive tease of a thriller gets the job done. It was great.</s><pad><pad><pad><pad><pad><pad><pad><pad><pad><pad><pad><pad><pad><pad><pad><pad><pad><pad><pad><pad><pad><pad><pad><pad><pad><pad><pad><pad><pad><pad><pad><pad><pad><pad><pad><pad><pad><pad><pad><pad><pad><pad><pad><pad><pad><pad><pad><pad><pad><pad>
+05/25/2021 06:16:44 - INFO - src.dataset -   Use demonstrations
+05/25/2021 06:16:44 - INFO - src.dataset -   Label 0 to word Ġterrible (6587)
+05/25/2021 06:16:44 - INFO - src.dataset -   Label 1 to word Ġgreat (372)
+05/25/2021 06:16:44 - INFO - src.dataset -   Total num_sample for mode test: 16
+05/25/2021 06:16:44 - INFO - src.dataset -   Creating/loading examples from dataset file at data/k-shot/SST-2/16-42
+05/25/2021 06:16:44 - INFO - filelock -   Lock 1983888312448 acquired on data/k-shot/SST-2/16-42\cached_test_RobertaTokenizerFast_128_sst-2.lock
+05/25/2021 06:16:44 - INFO - src.dataset -   Creating features from dataset file at data/k-shot/SST-2/16-42
+05/25/2021 06:16:45 - INFO - src.dataset -   Saving features into cached file data/k-shot/SST-2/16-42\cached_test_RobertaTokenizerFast_128_sst-2 [took 0.008 s]
+05/25/2021 06:16:45 - INFO - filelock -   Lock 1983888312448 released on data/k-shot/SST-2/16-42\cached_test_RobertaTokenizerFast_128_sst-2.lock
+05/25/2021 06:16:45 - INFO - src.dataset -   *** Example ***
+05/25/2021 06:16:45 - INFO - src.dataset -   guid: test-1
+05/25/2021 06:16:45 - INFO - src.dataset -   features: OurInputFeatures(input_ids=[0, 1264, 251, 6755, 9, 3741, 636, 5065, 479, 85, 21, 50264, 4, 2, 405, 95, 222, 295, 75, 1266, 203, 7, 162, 8, 702, 350, 30957, 7, 655, 120, 10, 946, 15, 36, 368, 28, 23979, 30, 43, 479, 85, 21, 6587, 4, 2, 700, 817, 47, 4883, 14, 1844, 1025, 43626, 64, 28, 303, 10, 1828, 4002, 479, 85, 21, 372, 4, 2, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1], attention_mask=[1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 
+0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], token_type_ids=None, label=0, mask_pos=[11], label_word_list=None)
+05/25/2021 06:16:45 - INFO - src.dataset -   text: <s>one long string of cliches. It was<mask>.</s>it just didn't mean much to me and played too skewed to ever get 
+a hold on (or be entertained by). It was terrible.</s>he makes you realize that deep inside righteousness can be found a tough beauty. It was great.</s><pad><pad><pad><pad><pad><pad><pad><pad><pad><pad><pad><pad><pad><pad><pad><pad><pad><pad><pad><pad><pad><pad><pad><pad><pad><pad><pad><pad><pad><pad><pad><pad><pad><pad><pad><pad><pad><pad><pad><pad><pad><pad><pad><pad><pad><pad><pad><pad><pad><pad><pad><pad><pad><pad><pad><pad><pad><pad><pad><pad><pad><pad><pad>
+05/25/2021 06:16:55 - INFO - filelock -   Lock 1983888229856 acquired on model_cache_dir_rob_base\51ba668f7ff34e7cdfa9561e8361747738113878850a7d717dbc69de8683aaad.c7efaa30a0d80b2958b876969faa180e485944a849deee4ad482332de65365a7.lock
+Downloading: 100%|██████████████████████████████████████████████████████████████████████████████████████████████████████████████| 501M/501M [01:24<00:00, 5.92MB/s]
+05/25/2021 06:18:20 - INFO - filelock -   Lock 1983888229856 released on model_cache_dir_rob_base\51ba668f7ff34e7cdfa9561e8361747738113878850a7d717dbc69de8683aaad.c7efaa30a0d80b2958b876969faa180e485944a849deee4ad482332de65365a7.lock
+Some weights of RobertaForPromptFinetuning were not initialized from the model checkpoint at roberta-base and are newly initialized: ['classifier.out_proj.bias', 'classifier.dense.weight', 'classifier.dense.bias', 'classifier.out_proj.weight', 'lm_head.decoder.bias']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+05/25/2021 06:18:27 - INFO - src.trainer -   ***** Running training *****
+05/25/2021 06:18:27 - INFO - src.trainer -     Num examples = 32
+05/25/2021 06:18:27 - INFO - src.trainer -     Num Epochs = 63
+05/25/2021 06:18:27 - INFO - src.trainer -     Total train batch size (w. parallel, distributed & accumulation) = 2
+05/25/2021 06:18:27 - INFO - src.trainer -     Gradient Accumulation steps = 1
+05/25/2021 06:18:27 - INFO - src.trainer -     Total optimization steps = 1000
+Epoch:  10%|███████████▍                                                                                                            | 6/63 [00:10<01:40,  1.76s/it]C:\Users\snbha\AppData\Roaming\Python\Python38\site-packages\transformers\trainer_pt_utils.py:366: FutureWarning: DistributedTensorGatherer is deprecated and will be removed in v5 of Transformers.
+  warnings.warn(
+                                                                                                                                                                   C:\Users\snbha\AppData\Roaming\Python\Python38\site-packages\transformers\data\metrics\__init__.py:66: FutureWarning: This metric will be removed from the library soon, metrics should be handled with the 🤗 Datasets library. You can have a look at this example script for pointers: https://github.com/huggingface/transformers/blob/master/examples/pytorch/text-classification/run_glue.py
+C:\Users\snbha\AppData\Roaming\Python\Python38\site-packages\transformers\data\metrics\__init__.py:36: FutureWarning: This metric will be removed from the library soon, metrics should be handled with the 🤗 Datasets library. You can have a look at this example script for pointers: https://github.com/huggingface/transformers/bl  warnings.warn(DEPRECATION_WARNING, FutureWarning)
+05/25/2021 06:18:41 - INFO - src.trainer -   Best dev result: 0.90625
+Epoch:  25%|██████████████████████████████▏                                                                                        | 16/63 [00:31<01:26,  1.83s/it] 
+Epoch:  98%|█████████████████████████████████████████████████████████████████████████████████████████████████████████████████████  | 62/63 [02:03<00:01,  1.99s/it] 
+05/25/2021 06:20:31 - INFO - src.trainer -
+
+Training completed. Do not forget to share your model on huggingface.co/models =)
+
+
+You are using a model of type roberta to instantiate a model of type bert. This is not supported for all configurations of models and can yield errors.
+05/25/2021 06:20:32 - INFO - __main__ -   *** Validate ***
+                        05/25/2021 06:20:35 - INFO - __main__ -   ***** Eval results sst-2 *****
+05/25/2021 06:20:35 - INFO - __main__ -     eval_loss = 0.7301996946334839
+05/25/2021 06:20:35 - INFO - __main__ -     eval_acc = 0.90625
+05/25/2021 06:20:35 - INFO - root -   *** Test ***
+
+2284it [03:00, 24.14it/s]
+2293it [03:00, 24.04it/s]05/25/2021 06:21:45 - INFO - __main__ -   ***** Test results sst-2 *****
+05/25/2021 06:21:45 - INFO - __main__ -     eval_loss = 1.1016654968261719
+05/25/2021 06:21:45 - INFO - __main__ -     eval_acc = 0.8899082568807339
+05/25/2021 06:21:45 - INFO - filelock -   Lock 1984503596992 acquired on log.lock
+05/25/2021 06:21:45 - INFO - filelock -   Lock 1984503596992 released on log.lock
+2448it [03:07, 13.08it/s]

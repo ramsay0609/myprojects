@@ -1,0 +1,99 @@
+python run.py --task_name='SST-2' --cache_dir="model_cache_dir_bert_base" --data_dir='data/k-shot/SST-2/16-42' --overwrite_output_dir --do_train --do_eval --do_predict --model_name_or_path="bert-base-uncased" --few_shot_type="prompt-demo" --num_k=16 --max_steps=1000 --eval_steps=100 --per_device_train_batch_size=2 --learning_rate=1e-5 --num_train_epochs=0 --output_dir='result/tmp' --seed=42 --template="*cls**sent_0*_It_was*mask*.*sep+*" --mapping="{'0':'terrible','1':'great'}" --num_sample=16 --evaluation_strategy="steps"
+2021-05-25 06:24:06.713776: I tensorflow/stream_executor/platform/default/dso_loader.cc:53] Successfully opened dynamic library cudart64_110.dll
+05/25/2021 06:24:11 - WARNING - __main__ -   Process rank: -1, device: cuda:0, n_gpu: 1, distributed training: False, 16-bits training: False
+05/25/2021 06:24:11 - INFO - __main__ -   Training/evaluation parameters DynamicTrainingArguments(output_dir='result/tmp', overwrite_output_dir=True, do_train=True, do_eval=True, do_predict=True, evaluation_strategy=<IntervalStrategy.STEPS: 'steps'>, prediction_loss_only=False, per_device_train_batch_size=2, per_device_eval_batch_size=8, per_gpu_train_batch_size=None, per_gpu_eval_batch_size=None, gradient_accumulation_steps=1, eval_accumulation_steps=None, learning_rate=1e-05, weight_decay=0.0, adam_beta1=0.9, adam_beta2=0.999, adam_epsilon=1e-08, max_grad_norm=1.0, num_train_epochs=0.0, max_steps=1000, lr_scheduler_type=<SchedulerType.LINEAR: 'linear'>, warmup_ratio=0.0, warmup_steps=0, logging_dir='runs\\May25_06-24-09_LAPTOP-IN0AF4CJ', logging_strategy=<IntervalStrategy.STEPS: 'steps'>, logging_first_step=False, logging_steps=500, save_strategy=<IntervalStrategy.STEPS: 'steps'>, save_steps=500, save_total_limit=None, no_cuda=False, seed=42, fp16=False, fp16_opt_level='O1', fp16_backend='auto', fp16_full_eval=False, local_rank=-1, tpu_num_cores=None, tpu_metrics_debug=False, debug=[], dataloader_drop_last=False, eval_steps=100, dataloader_num_workers=0, past_index=-1, run_name='result/tmp', disable_tqdm=False, remove_unused_columns=True, label_names=None, load_best_model_at_end=False, metric_for_best_model=None, greater_is_better=None, ignore_data_skip=False, sharded_ddp=[], deepspeed=None, label_smoothing_factor=0.0, adafactor=False, group_by_length=False, length_column_name='length', report_to=['tensorboard'], ddp_find_unused_parameters=None, dataloader_pin_memory=True, skip_memory_metrics=False, use_legacy_prediction_loop=False, push_to_hub=False, resume_from_checkpoint=None, mp_parameters='', array_id=-1, model_id=-1, save_logit=False, save_logit_dir=None, fix_layers=0, save_at_last=False, no_train=False, no_predict=False)
+05/25/2021 06:24:11 - INFO - __main__ -   Task name: sst-2, number of labels: 2, output mode: classification
+05/25/2021 06:24:11 - INFO - __main__ -   Automatically convert the template to using demonstrations.
+05/25/2021 06:24:11 - INFO - __main__ -   | *cls**sent_0*_It_was*mask*.*sep+* => *cls**sent_0*_It_was*mask*.*sep+**sent_1*_It_was*label_0*.*sep+**sent_2*_It_was*label_1*.*sep+*
+05/25/2021 06:24:12 - INFO - filelock -   Lock 2329794743456 acquired on model_cache_dir_bert_base\3c61d016573b14f7f008c02c4e51a366c67ab274726fe2910691e2a761acf43e.37395cee442ab11005bcd270f3c34464dc1704b715b5d7d52b1a461abe3b9e4e.lock
+Downloading: 100%|████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 570/570 [00:00<00:00, 86.1kB/s] 
+05/25/2021 06:24:13 - INFO - filelock -   Lock 2329794743456 released on model_cache_dir_bert_base\3c61d016573b14f7f008c02c4e51a366c67ab274726fe2910691e2a761acf43e.37395cee442ab11005bcd270f3c34464dc1704b715b5d7d52b1a461abe3b9e4e.lock
+05/25/2021 06:24:16 - INFO - filelock -   Lock 2329794359104 acquired on model_cache_dir_bert_base\45c3f7a79a80e1cf0a489e5c62b43f173c15db47864303a55d623bb3c96f72a5.d789d64ebfe299b0e416afc4a169632f903f693095b4629a7ea271d5a0cf2c99.lock
+Downloading: 100%|███████████████████████████████████████████████████████████████████████████████████████████████████████████████| 232k/232k [00:01<00:00, 143kB/s] 
+05/25/2021 06:24:18 - INFO - filelock -   Lock 2329794359104 released on model_cache_dir_bert_base\45c3f7a79a80e1cf0a489e5c62b43f173c15db47864303a55d623bb3c96f72a5.d789d64ebfe299b0e416afc4a169632f903f693095b4629a7ea271d5a0cf2c99.lock
+05/25/2021 06:24:20 - INFO - filelock -   Lock 2329794358768 acquired on model_cache_dir_bert_base\534479488c54aeaf9c3406f647aa2ec13648c06771ffe269edabebd4c412da1d.7f2721073f19841be16f41b0a70b600ca6b880c8f3df6f3535cbc704371bdfa4.lock
+Downloading: 100%|███████████████████████████████████████████████████████████████████████████████████████████████████████████████| 466k/466k [00:02<00:00, 228kB/s] 
+05/25/2021 06:24:23 - INFO - filelock -   Lock 2329794358768 released on model_cache_dir_bert_base\534479488c54aeaf9c3406f647aa2ec13648c06771ffe269edabebd4c412da1d.7f2721073f19841be16f41b0a70b600ca6b880c8f3df6f3535cbc704371bdfa4.lock
+05/25/2021 06:24:26 - INFO - filelock -   Lock 2329794358240 acquired on model_cache_dir_bert_base\c1d7f0a763fb63861cc08553866f1fc3e5a6f4f07621be277452d26d71303b7e.20430bd8e10ef77a7d2977accefe796051e01bc2fc4aa146bc862997a1a15e79.lock
+Downloading: 100%|██████████████████████████████████████████████████████████████████████████████████████████████████████████████| 28.0/28.0 [00:00<00:00, 5.90kB/s] 
+05/25/2021 06:24:28 - INFO - filelock -   Lock 2329794358240 released on model_cache_dir_bert_base\c1d7f0a763fb63861cc08553866f1fc3e5a6f4f07621be277452d26d71303b7e.20430bd8e10ef77a7d2977accefe796051e01bc2fc4aa146bc862997a1a15e79.lock
+05/25/2021 06:24:28 - INFO - src.dataset -   Use demonstrations
+05/25/2021 06:24:28 - INFO - src.dataset -   Label 0 to word terrible (6659)
+05/25/2021 06:24:28 - INFO - src.dataset -   Label 1 to word great (2307)
+05/25/2021 06:24:28 - INFO - src.dataset -   Total num_sample for mode train: 1
+05/25/2021 06:24:28 - INFO - src.dataset -   Creating/loading examples from dataset file at data/k-shot/SST-2/16-42
+05/25/2021 06:24:28 - INFO - filelock -   Lock 2329794866624 acquired on data/k-shot/SST-2/16-42\cached_train_BertTokenizerFast_128_sst-2.lock
+05/25/2021 06:24:28 - INFO - src.dataset -   Creating features from dataset file at data/k-shot/SST-2/16-42
+05/25/2021 06:24:28 - INFO - src.dataset -   Saving features into cached file data/k-shot/SST-2/16-42\cached_train_BertTokenizerFast_128_sst-2 [took 0.000 s]       
+05/25/2021 06:24:28 - INFO - filelock -   Lock 2329794866624 released on data/k-shot/SST-2/16-42\cached_train_BertTokenizerFast_128_sst-2.lock
+05/25/2021 06:24:28 - INFO - src.dataset -   Use demonstrations
+05/25/2021 06:24:28 - INFO - src.dataset -   Label 0 to word terrible (6659)
+05/25/2021 06:24:28 - INFO - src.dataset -   Label 1 to word great (2307)
+05/25/2021 06:24:28 - INFO - src.dataset -   Total num_sample for mode dev: 16
+05/25/2021 06:24:28 - INFO - src.dataset -   Creating/loading examples from dataset file at data/k-shot/SST-2/16-42
+05/25/2021 06:24:28 - INFO - filelock -   Lock 2329794785344 acquired on data/k-shot/SST-2/16-42\cached_dev_BertTokenizerFast_128_sst-2.lock
+05/25/2021 06:24:28 - INFO - src.dataset -   Creating features from dataset file at data/k-shot/SST-2/16-42
+05/25/2021 06:24:28 - INFO - src.dataset -   Saving features into cached file data/k-shot/SST-2/16-42\cached_dev_BertTokenizerFast_128_sst-2 [took 0.000 s]
+05/25/2021 06:24:28 - INFO - filelock -   Lock 2329794785344 released on data/k-shot/SST-2/16-42\cached_dev_BertTokenizerFast_128_sst-2.lock
+05/25/2021 06:24:28 - INFO - src.dataset -   *** Example ***
+05/25/2021 06:24:28 - INFO - src.dataset -   guid: dev-1
+05/25/2021 06:24:28 - INFO - src.dataset -   features: OurInputFeatures(input_ids=[101, 2107, 1037, 13544, 17837, 2718, 1011, 1998, 1011, 3335, 6960, 1010, 2017, 6187, 1050, 1005, 1056, 2393, 8343, 2075, 2008, 2009, 2001, 19641, 2006, 1037, 2154, 1011, 2000, 1011, 2154, 3978, 2076, 2537, 1012, 2009, 2001, 103, 1012, 102, 2034, 1011, 25309, 2198, 16225, 2003, 2196, 2583, 2000, 4139, 2009, 2067, 2006, 2607, 1012, 2009, 2001, 6659, 1012, 102, 2023, 23182, 18381, 1997, 1037, 10874, 4152, 1996, 3105, 2589, 1012, 2009, 2001, 2307, 1012, 102, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 
+0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], attention_mask=[1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 
+1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], token_type_ids=None, label=0, mask_pos=[37], label_word_list=None)
+05/25/2021 06:24:28 - INFO - src.dataset -   text: [CLS] such a wildly uneven hit - and - miss enterprise, you can't help suspecting that it was improvised on a day - to - day basis during production. it was [MASK]. [SEP] first - timer john mckay is never able to pull it back on course. it was terrible. [SEP] this seductive tease of a thriller gets the job done. it was great. [SEP] [PAD] [PAD] [PAD] [PAD] [PAD] [PAD] [PAD] [PAD] [PAD] [PAD] [PAD] [PAD] [PAD] [PAD] [PAD] [PAD] [PAD] [PAD] [PAD] [PAD] [PAD] [PAD] [PAD] [PAD] [PAD] [PAD] [PAD] [PAD] [PAD] [PAD] [PAD] [PAD] [PAD] [PAD] [PAD] [PAD] [PAD] [PAD] [PAD] [PAD] [PAD] [PAD] [PAD] [PAD] [PAD] [PAD] [PAD] [PAD] [PAD] [PAD] [PAD] [PAD]
+05/25/2021 06:24:28 - INFO - src.dataset -   Use demonstrations
+05/25/2021 06:24:28 - INFO - src.dataset -   Label 0 to word terrible (6659)
+05/25/2021 06:24:28 - INFO - src.dataset -   Label 1 to word great (2307)
+05/25/2021 06:24:28 - INFO - src.dataset -   Total num_sample for mode test: 16
+05/25/2021 06:24:28 - INFO - src.dataset -   Creating/loading examples from dataset file at data/k-shot/SST-2/16-42
+05/25/2021 06:24:28 - INFO - filelock -   Lock 2329794787648 acquired on data/k-shot/SST-2/16-42\cached_test_BertTokenizerFast_128_sst-2.lock
+05/25/2021 06:24:28 - INFO - src.dataset -   Creating features from dataset file at data/k-shot/SST-2/16-42
+05/25/2021 06:24:28 - INFO - src.dataset -   Saving features into cached file data/k-shot/SST-2/16-42\cached_test_BertTokenizerFast_128_sst-2 [took 0.008 s]        
+05/25/2021 06:24:28 - INFO - filelock -   Lock 2329794787648 released on data/k-shot/SST-2/16-42\cached_test_BertTokenizerFast_128_sst-2.lock
+05/25/2021 06:24:28 - INFO - src.dataset -   *** Example ***
+05/25/2021 06:24:28 - INFO - src.dataset -   guid: test-1
+05/25/2021 06:24:28 - INFO - src.dataset -   features: OurInputFeatures(input_ids=[101, 2028, 2146, 5164, 1997, 18856, 17322, 2015, 1012, 2009, 2001, 103, 1012, 102, 2009, 2074, 2106, 1050, 1005, 1056, 2812, 2172, 2000, 2033, 1998, 2209, 2205, 15315, 7974, 2098, 2000, 2412, 2131, 1037, 2907, 2006, 1006, 2030, 2022, 21474, 2011, 1007, 1012, 2009, 2001, 6659, 1012, 102, 2002, 3084, 2017, 5382, 2008, 2784, 2503, 19556, 2791, 2064, 2022, 2179, 1037, 7823, 5053, 1012, 2009, 2001, 2307, 1012, 
+102, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 
+0, 0, 0, 0, 0, 0], attention_mask=[1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 
+1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], token_type_ids=None, label=0, mask_pos=[11], label_word_list=None)      
+05/25/2021 06:24:28 - INFO - src.dataset -   text: [CLS] one long string of cliches. it was [MASK]. [SEP] it just didn't mean much to me and played too skewed to ever get a hold on ( or be entertained by ). it was terrible. [SEP] he makes you realize that deep inside righteousness can be found a tough beauty. it was great. [SEP] [PAD] [PAD] [PAD] [PAD] [PAD] [PAD] [PAD] [PAD] [PAD] [PAD] [PAD] [PAD] [PAD] [PAD] [PAD] [PAD] [PAD] [PAD] [PAD] [PAD] [PAD] [PAD] [PAD] [PAD] [PAD] [PAD] [PAD] [PAD] [PAD] [PAD] [PAD] [PAD] [PAD] [PAD] [PAD] [PAD] [PAD] [PAD] [PAD] [PAD] [PAD] [PAD] [PAD] [PAD] [PAD] [PAD] [PAD] [PAD] [PAD] [PAD] [PAD] [PAD] [PAD] [PAD] [PAD] [PAD] [PAD] [PAD] [PAD]
+05/25/2021 06:24:38 - INFO - filelock -   Lock 2329794421520 acquired on model_cache_dir_bert_base\a8041bf617d7f94ea26d15e218abd04afc2004805632abc0ed2066aa16d50d04.faf6ea826ae9c5867d12b22257f9877e6b8367890837bd60f7c54a29633f7f2f.lock
+Downloading: 100%|██████████████████████████████████████████████████████████████████████████████████████████████████████████████| 440M/440M [01:12<00:00, 6.04MB/s] 
+05/25/2021 06:25:52 - INFO - filelock -   Lock 2329794421520 released on model_cache_dir_bert_base\a8041bf617d7f94ea26d15e218abd04afc2004805632abc0ed2066aa16d50d04.faf6ea826ae9c5867d12b22257f9877e6b8367890837bd60f7c54a29633f7f2f.lock
+Some weights of the model checkpoint at bert-base-uncased were not used when initializing BertForPromptFinetuning: ['cls.seq_relationship.weight', 'cls.seq_relationship.bias']
+- This IS expected if you are initializing BertForPromptFinetuning from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing BertForPromptFinetuning from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+Some weights of BertForPromptFinetuning were not initialized from the model checkpoint at bert-base-uncased and are newly initialized: ['cls.predictions.decoder.bias']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+05/25/2021 06:25:56 - INFO - src.trainer -   ***** Running training *****
+05/25/2021 06:25:56 - INFO - src.trainer -     Num examples = 32
+05/25/2021 06:25:56 - INFO - src.trainer -     Num Epochs = 63
+05/25/2021 06:25:56 - INFO - src.trainer -     Instantaneous batch size per device = 2
+05/25/2021 06:25:56 - INFO - src.trainer -     Total train batch size (w. parallel, distributed & accumulation) = 2
+05/25/2021 06:25:56 - INFO - src.trainer -     Gradient Accumulation steps = 1
+05/25/2021 06:25:56 - INFO - src.trainer -     Total optimization steps = 1000
+Epoch:  10%|███████████▍                                                                                                            | 6/63 [00:08<01:24,  1.49s/it]C:\Users\snbha\AppData\Roaming\Python\Python38\site-packages\transformers\trainer_pt_utils.py:366: FutureWarning: DistributedTensorGatherer is deprecated and will be removed in v5 of Transformers.
+  warnings.warn(
+                                                                                                                                                                   C:\Users\snbha\AppData\Roaming\Python\Python38\site-packages\transformers\data\metrics\__init__.py:66: FutureWarning: This metric will be removed from the library soon, metrics should be handled with the 🤗 Datasets library. You can have a look at this example script for pointers: https://github.com/huggingface/transformers/blob/master/examples/pytorch/text-classification/run_glue.py
+  warnings.warn(DEPRECATION_WARNING, FutureWarning)
+C:\Users\snbha\AppData\Roaming\Python\Python38\site-packages\transformers\data\metrics\__init__.py:36: FutureWarning: This metric will be removed from the library soon, metrics should be handled with the 🤗 Datasets library. You can have a look at this example script for pointers: https://github.com/huggingface/transformers/blob/master/examples/pytorch/text-classification/run_glue.py
+  warnings.warn(DEPRECATION_WARNING, FutureWarning)
+05/25/2021 06:26:08 - INFO - src.trainer -   Best dev result: 0.8125
+Epoch:  19%|████████████05/25/2021 06:26:20 - INFO - src.trainer -   Best dev result: 0.84375                                      | 12/63 [00:20<01:18,  1.55s/it] 
+Epoch:  98%|█████████████████████████████████████████████████████████████████████████████████████████████████████████████████████  | 62/63 [01:52<00:01,  1.82s/it] 
+05/25/2021 06:27:49 - INFO - src.trainer -
+
+Training completed. Do not forget to share your model on huggingface.co/models =)
+
+
+05/25/2021 06:27:50 - INFO - __main__ -   *** Validate ***
+                        05/25/2021 06:27:52 - INFO - __main__ -   ***** Eval results sst-2 *****
+05/25/2021 06:27:52 - INFO - __main__ -     eval_loss = 0.9909043312072754
+05/25/2021 06:27:52 - INFO - __main__ -     eval_acc = 0.84375
+05/25/2021 06:27:52 - INFO - root -   *** Test ***
+                         05/25/2021 06:29:03 - INFO - __main__ -   ***** Test results sst-2 *****
+05/25/2021 06:29:03 - INFO - __main__ -     eval_loss = 0.9228788614273071
+05/25/2021 06:29:03 - INFO - __main__ -     eval_acc = 0.838302752293578
+05/25/2021 06:29:03 - INFO - filelock -   Lock 2328271513584 acquired on log.lock
+05/25/2021 06:29:03 - INFO - filelock -   Lock 2328271513584 released on log.lock
+2448it [02:57, 13.81it/s]
